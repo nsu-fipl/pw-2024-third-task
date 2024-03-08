@@ -94,3 +94,19 @@ def test_two_words_different_frequency_json():
         assert lines[0] == 'welt\n'
         assert lines[1] == 'halo\n'
 
+if __name__ == '__main__':
+    test_empty_csv()
+    test_one_good_csv()
+    test_one_bad_csv()
+    test_one_good_one_bad_csv()
+    test_one_bad_one_good_csv()
+    test_empty_xml()
+    test_one_verb_xml()
+    test_one_non_verb_xml()
+    test_two_verbs_first_is_frequent_xml()
+    test_two_verbs_second_is_frequent_xml()
+    test_empty_json()
+    test_no_suitable_lines_json()
+    test_one_word_json()
+    test_two_words_same_frequency_json()
+    test_two_words_different_frequency_json()
