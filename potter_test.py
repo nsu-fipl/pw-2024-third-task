@@ -60,39 +60,24 @@ def test_two_verbs_second_is_frequent_xml():
     assert verb == "опростоволоситься"
 
 def test_empty_json():
-    potter.find_item('tests/json/empty.json')
-    with open('result.txt') as f:
-        lines = f.readlines()
-        assert not lines
+    words = potter.find_item('tests/json/empty.json')
+    assert not words
 
 def test_no_suitable_lines_json():
-    potter.find_item('tests/json/no_suitable_lines.json')
-    with open('result.txt') as f:
-        lines = f.readlines()
-        assert not lines
+    words = potter.find_item('tests/json/no_suitable_lines.json')
+    assert not words
 
 def test_one_word_json():
-    potter.find_item('tests/json/one_word.json')
-    with open('result.txt') as f:
-        lines = f.readlines()
-        assert len(lines) == 1
-        assert lines[0] == 'halo\n'
+    words = potter.find_item('tests/json/one_word.json')
+    assert words == ['halo']
 
 def test_two_words_same_frequency_json():
-    potter.find_item('tests/json/two_words_same_frequency.json')
-    with open('result.txt') as f:
-        lines = f.readlines()
-        assert len(lines) == 2
-        assert lines[0] == 'halo\n'
-        assert lines[1] == 'welt\n'
+    words = potter.find_item('tests/json/two_words_same_frequency.json')
+    assert words == ['halo', 'welt']
 
 def test_two_words_different_frequency_json():
-    potter.find_item('tests/json/two_words_different_frequency.json')
-    with open('result.txt') as f:
-        lines = f.readlines()
-        assert len(lines) == 2
-        assert lines[0] == 'welt\n'
-        assert lines[1] == 'halo\n'
+    words = potter.find_item('tests/json/two_words_different_frequency.json')
+    assert words == ['welt', 'halo']
 
 if __name__ == '__main__':
     test_empty_csv()
